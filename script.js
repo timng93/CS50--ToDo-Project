@@ -11,17 +11,17 @@ const uncheckedCountSpan = document.getElementById("unchecked-count");
 let itemCount = 0;
 let uncheckedCount = 0;
 
-function addToDo(todo) {
+const addToDo = todo => {
   itemCount += todo;
   itemCountSpan.innerHTML = itemCount;
-}
+};
 
-function checkToDo(todo) {
+const checkToDo = todo => {
   uncheckedCount += todo;
   uncheckedCountSpan.innerHTML = uncheckedCount;
-}
+};
 
-function createToDo() {
+const createToDo = () => {
   const checkBox = document.createElement("input");
   checkBox.className = classNames.TODO_CHECKBOX;
   checkBox.type = "checkbox";
@@ -29,7 +29,7 @@ function createToDo() {
 
   const text = document.createElement("span");
   text.className = classNames.TODO_TEXT;
-  text.innerHTML = "New To Do";
+  text.innerHTML = "New ToDo";
 
   const listItem = document.createElement("li");
   listItem.className = classNames.TODO_ITEM;
@@ -37,15 +37,15 @@ function createToDo() {
   listItem.appendChild(text);
 
   return listItem;
-}
+};
 
-function addTodo(item) {
-  const todo = createToDo(item);
+const addTodo = () => {
+  const todo = createToDo();
   list.appendChild(todo);
   addToDo(1);
   checkToDo(1);
-}
+};
 
-function toggleCheckbox() {
+const toggleCheckbox = () => {
   this.checked ? checkToDo(-1) : checkToDo(1);
-}
+};
